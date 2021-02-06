@@ -1,0 +1,362 @@
+CREATE
+
+Correct commands examples/Exemple comenzi corecte
+
+CREATE TABLE students ((id, integer, 1000, 0), (nume, text, 128, ’’), (grupa, text,50,’1000’))
+CREATE TABLE students IF NOT EXISTS ((id, integer, 1000, 0), (nume, text, 128, ’’), (grupa, text,50,’1000’))
+
+tabela/table: students
+coloane/columns: 3
+coloana 1/column 1:
+denumire/name: id
+tip/type: numeric
+dimensiune/dimension: 1000
+default: 0
+coloana 2/column 2:
+denumire/name: nume
+tip/type: text
+dimensiune/dimension: 128
+default: ‘’ --empty string
+coloana 3/column 3:
+denumire/name: grupa
+tip/type: text
+dimensiune/dimension: 50
+default: “1000”
+
+Wrong commands examples/Exemple comenzi greșite
+
+CREATE TABLE ((id, numeric, 1000, 0), (nume, text, 128, ’’), (grupa, text,50,’1000’))
+
+wrong command (missing table name)
+comanda greșită (lipsește numele tabelei)
+
+CREATETABLE studenti ((id, numeric, 1000, 0), (nume, text, 128, ’’), (grupa, text,50,’1000’))
+
+wrong command name (missing keywords)
+comanda greșită (cuvinte cheie greșite)
+
+
+CREATE TBLE studenti ((id, numeric, 1000, 0), (nume, text, 128, ’’), (grupa, text,50,’1000’))
+
+wrong command name (missing keywords)
+comanda greșită (cuvinte cheie greșite)
+
+CREATE table studenti ((id, numeric, 1000, 0), (nume, text, 128, ’’), (grupa, text,50,’1000’))
+
+wrong command name (missing keywords)
+comanda greșită (cuvinte cheie greșite)
+
+CREATE studenti ((id, numeric, 1000, 0), (nume, text, 128, ’’), (grupa, text,50,’1000’))
+
+wrong command name (missing keywords)
+comanda greșită (cuvinte cheie greșite)
+
+
+CREATE TABLE students (id,numeric, 1000, 0, (nume, text, 128, ’’), (grupa, text,50,’1000’))
+
+wrong command (missing ())
+comanda greșită (lipsesc parantezele de la prima coloana)
+
+CREATE TABLE students ((id, numeric, 1000, 0), (nume, text, 128), (grupa, text,50,’1000’))
+CREATE TABLE students ((id, numeric, 1000, 0), (nume, text, 128, ’’), (text,50,’1000’))
+
+wrong command (incomplete columns description)
+comanda greșită (descriere incompleta pentru comenzi)
+
+CREATE TABLE students ((id, numeric, 1000, 0), (nume, text, 128, ’’), (grupa, string,50,’1000’))
+wrong command: wrong column type (accepted types are text, integer, float)
+comanda greșită: tip coloana gresit (tipuri acceptate sunt text, integer, float)
+
+CREATE TABLE students data ((id, ingere, 1000, 0))
+wrong command: wrong table name (has space)
+comanda greșită: nume greșit tabela (contine spațiu)
+
+
+Orice combinație a problemelor anterioare
+Any other combination of previous problems
+
+DROP
+
+Correct commands examples/Exemple comenzi corecte
+
+DROP TABLE studenti
+Table to delete: studenti
+Tabela de sters: studenti
+
+DROP TABLE          studenti
+Table to delete: studenti
+Tabela de sters: studenti
+
+Wrong commands examples/Exemple comenzi greșite
+
+DROP TABLE
+Wrong command: missing table name
+Comanda gresita: lipseste numele tabelei
+
+DROPTABLE studenti
+Wrong command: wrong keywords
+Comanda gresita: numele comenzii
+
+DROP TABLE studenti, profesori
+Wrong command: too many table names
+Comanda gresita: prea multe nume de tabele
+
+DROP TABLE studenti data
+Wrong command: wrong table name (has space)
+Comanda gresita: numele tabelei contine spațiu
+
+
+DISPLAY
+
+Correct commands examples/Exemple comenzi corecte
+
+DISPLAY TABLE studenti
+Table to delete: studenti
+Tabela de sters: studenti
+
+Optional for phase 1: if you recorded the table details on CREATE then you can display them now
+Opțional pentru faza 1: dacă ai înregistrat detaliile tabelei pe comanda CREATE atunci le poți afișa acum
+
+
+Wrong commands examples/Exemple comenzi greșite
+
+DISPLAY TABLE
+Wrong command: missing table name
+Comanda gresita: lipseste numele tabelei
+
+DISPLAYTABLE studenti
+Wrong command: wrong keywords
+Comanda gresita: numele comenzii
+
+DISPLAY TABLE studenti, profesori
+Wrong command: too many table names
+Comanda gresita: prea multe nume de tabele
+
+DISPLAY TABLE studenti data
+Wrong command: wrong table name (has space)
+Comanda gresita: numele tabelei contine spațiu
+
+
+INSERT
+
+INSERT INTO nume_tabela VALUES(...); valorile sunt separate prin, și au numărul și ordinea exacta ca definiția tabelului
+
+Correct commands examples/Exemple comenzi corecte
+
+Optional
+The values sequence is correlated with the  columns sequence from CREATE
+Secvența de valori este corelată cu secvența de coloane din CREATE
+
+
+INSERT INTO studenti VALUES (1,”John”,”1001”)
+tabela/table: students
+coloane/columns: 3
+coloana 1/column 1 value: 1
+coloana 2/column 2 value: “John”
+coloana 3/column 3 value:  “1001”
+
+INSERT INTO produse VALUES (1,”Pepsi”,23.5,”summer”)
+tabela/table: produse
+coloane/columns: 4
+coloana 1/column 1 value: 1
+coloana 2/column 2 value: “Pepsi”
+coloana 3/column 3 value:  23.5
+coloana 3/column 3 value:  “summer”
+
+Wrong commands examples/Exemple comenzi greșite
+
+INSERT studenti VALUES (1,”John”,”1001”)
+missing INTO
+lipsește INTO
+
+INSERT INTO studenti VALUES (1,”John” ”1001”)
+missing ,
+lipsește virgula
+
+INSERT INTO VALUES (1,”John”,”1001”)
+missing table name
+lipsește numele tabelei
+
+INSERT INTO studenti VALUES 1,”John”,”1001”)
+missing (
+lipsește paranteza la început sau la final
+
+INSERT into studenti VALUES (1,”John”,”1001”)
+wrong key words
+cuvintele cheie nu sunt ok
+
+Orice combinație a problemelor anterioare
+Any other combination of previous problems
+
+
+
+SELECT
+
+SELECT (cel_putin_o_coloana, ...) | ALL FROM nume_tabela [WHERE nume_coloană = valoare]
+
+Correct commands examples/Exemple comenzi corecte
+
+Optional
+The values sequence is correlated with the  columns sequence from CREATE
+Secvența de valori este corelată cu secvența de coloane din CREATE
+
+SELECT (nume) FROM studenti WHERE id = 1
+tabela/table: studenti 
+coloane/columns: 1
+coloane/columns: nume
+filtru/filter: yes
+coloana filtru/filter column: id with value/cu valoare 1
+
+SELECT (id,nume,grupa)  FROM  studenti WHERE id = 1
+tabela/table: studenti 
+coloane/columns: 3
+coloane/columns: id, nume, grupa
+filtru/filter: yes
+coloana filtru/filter column: id with value/cu valoare 1
+
+SELECT (id,nume,grupa)  FROM  studenti 
+tabela/table: studenti 
+coloane/columns: 3
+coloane/columns: id, nume, grupa
+filtru/filter: no
+coloana filtru/filter column: 
+
+SELECT ALL FROM studenti WHERE id = 1
+tabela/table: studenti 
+coloane/columns: toate/all
+filtru/filter: yes
+coloana filtru/filter column: id with value/cu valoare 1
+
+SELECT ALL FROM studenti
+tabela/table: studenti 
+coloane/columns: toate/all
+filtru/filter: no
+coloana filtru/filter column: 
+
+Wrong commands examples/Exemple comenzi greșite
+
+SELECT () FROM studenti WHERE id = 1
+missing column
+lipsește coloana
+
+SELECT ALL studenti WHERE id = 1
+missing  FROM
+lipsește FROM
+
+SELECT ALL FROM studenti data 
+wrong table name
+nume tabela greșit
+
+SELECT (nume) FROM studenti id = 1
+missing WHERE
+lipsește WHERE
+
+SELECT (nume) ALL FROM studenti id = 1
+SELECT ALL (nume) FROM studenti id = 1
+ALL with columns not allowed
+nu este permisă selecție cu ALL și coloane
+
+SELECT (nume) FROM studenti WHERE id = 1, nume = ”John”
+multiple WHERE criteria
+mai multe condiții în clauza WHERE
+
+Orice combinație a problemelor anterioare
+Any other combination of previous problems
+
+
+
+DELETE
+
+DELETE FROM nume_tabela WHERE nume_coloană = valoare
+
+Correct commands examples/Exemple comenzi corecte
+
+DELETE FROM studenti WHERE nume = “John”
+tabela/table: studenti 
+coloana filtru/filter column: nume with value/cu valoare “John”
+
+
+DELETE FROM studenti WHERE id = 1
+tabela/table: studenti 
+coloana filtru/filter column: id with value/cu valoare 1
+
+Wrong commands examples/Exemple comenzi greșite
+
+
+DELETE FROM WHERE nume = “John”
+missing table name
+lipsește numele tabelei
+
+DELETE FROM studenti nume = “John”
+missing WHERE
+lipsește WHERE
+
+DELETE FROM studenti WHERE nume = “John”, id = 1
+too many WHERE conditions
+prea multe condiții pentru WHERE
+
+delete FROM studenti WHERE nume = “John”
+wrong keyword
+cuvant cheie greșit
+
+DELETE FROM studenti
+missing WHERE
+lipsește WHERE
+
+DELETE FROM studenti data WHERE nume = “John”
+wrong table name
+nume greșit tabela
+
+Orice combinație a problemelor anterioare
+Any other combination of previous problems
+
+
+
+UPDATE
+
+UPDATE nume_tabela SET nume_coloană = valoare WHERE nume_coloană = valoare 
+
+Correct commands examples/Exemple comenzi corecte
+
+UPDATE studenti SET nume = “Alice” WHERE id = 1
+tabela/table: studenti 
+coloane/columns: nume
+valoare/value: “Alice”
+filtru/filter: id
+valoare filtru/filter value: 1
+
+UPDATE studenti SET nume = “Alice” WHERE nume= “Bianca”
+tabela/table: studenti 
+coloane/columns: nume
+valoare/value: “Alice”
+filtru/filter: nume
+valoare filtru/filter value: “Bianca”
+
+Wrong commands examples/Exemple comenzi greșite
+
+UPDATE studenti nume = “Alice” WHERE id = 1
+missing SET
+lipsește SET
+
+UPDATE studenti SET nume = “Alice” id = 1
+missing WHERE
+lipsește WHERE
+
+UPDATE studenti SET nume = “Alice”, id = 4 WHERE id = 1
+too many SET columns
+prea multe coloane de modificat
+
+UPDATE studenti SET  WHERE id = 1
+missing column to change
+lipsește coloana de actualizat
+
+UPDATE studenti SET nume = “Alice” WHERE 
+missing WHERE condition
+lipsește condiția pentru WHERE
+
+UPDATE studenti SET nume = “Alice” WHERE id = 1, id = 5
+too many arguments for WHERE
+prea multe argumente pentru WHERE
+
+Orice combinație a problemelor anterioare
+Any other combination of previous problems
